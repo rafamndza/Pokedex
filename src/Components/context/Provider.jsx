@@ -12,9 +12,9 @@ export default function Provider( {children} ) {
   const [currentPage,setCurrentPage]=useState(0);
   const [totalPages,setTotalPages]=useState(0);
 
-  
 
-  const getlistOfPokemons = ()=>{
+  
+  const getListOfPokemons = ()=>{
     axios.get(`https://pokeapi.co/api/v2/pokemon/?offset=${offset}&limit=20`)
       .then((response) => {
         setListOfPokemons(response.data.results);
@@ -24,13 +24,62 @@ export default function Provider( {children} ) {
   };
 
   useEffect(() => {
-    getlistOfPokemons();
+    getListOfPokemons();
   },[offset]);
 
-  //Filter
 
+
+  //    Searchbar
+
+  const [onePokemon,setOnePokemon]=useState({
+    name:'',
+    img:'',
+    id:'',
+    types:[{},{}],
+    weight:'',
+    height:'',
+    hp:'',
+    attack:'',
+    def:'',
+    special_attack:'',
+    special_defese:'',
+    speed:''
   
-
+  });
+  
+  const getDetails = async ()=>{
+    const res= await fetch(`https://pokeapi.co/api/v2/pokemon/${onePokemon.name}`);
+    const data =await res.json();
+    setOnePokemon({
+      img:data.sprites.front_default,
+      name:data.name,
+      id:data.id,
+      types:data.types,
+      weight:data.weight,
+      height:data.height,
+      hp:data.stats[0].base_stat,
+      attack:data.stats[1].base_stat,
+      defense:data.stats[2].base_stat,
+      special_attack:data.stats[3].base_stat,
+      special_defese:data.stats[4].base_stat,
+      speed:data.stats[5].base_stat
+    });
+    
+  };
+  
+  const handleName = (e) => {
+    const aux = e.target.value.toLowerCase();
+    setOnePokemon({
+        name:aux
+    });
+  };
+  
+  const handleSubmit = (e) => {
+    const name = onePokemon.name;
+    e.preventDefault();
+    getDetails();
+  };
+  console.log(onePokemon)
   return (
     <PokemonContext.Provider value={{
       offset,
@@ -38,7 +87,9 @@ export default function Provider( {children} ) {
       listOfPokemons,
       currentPage,
       totalPages,
-
+      handleSubmit,
+      handleName,
+      onePokemon,
 
     }}>
         {children}

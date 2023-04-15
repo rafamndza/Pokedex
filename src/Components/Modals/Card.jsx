@@ -9,7 +9,7 @@ export default function Card({pokemon}) {
     const[pokemonData,setPokemonData]=useState({
         name:'',
         id:'',
-        sprites:{other:{home:{front_default:''}}},
+        sprites:{other:{dream_world:{front_default:''}}},
         types:[{type:{name:''}},{type:{name:''}}],
         weight:1,
         height:1,
