@@ -11,7 +11,7 @@ export default function SearchModals() {
       <div className="wrapper rounded-lg outline outline-offset-0  ">
         <div className="content-wrapper grid">
           <div className="header">
-            <div className="bg-orange-500 flex">
+            <div className=" flex">
               <div className='absolute rounded-lg outline outline-offset-0 w-10 flex justify-center py-1.5 text-white bg-black'> 
                 <div className=''>#{onePokemon?.id}</div>
               </div>
@@ -38,28 +38,28 @@ export default function SearchModals() {
               }
             )}
           </div>
-          <div className="flex">
-            <div className='grid grid-cols-2 '>
-              <div className=" inline-block">
-                <div className='flex justify-center gap-2'>
-                  <i className='fas fa-weight'></i>
-                  <h3>{onePokemon?.weight/10}kg</h3>
+          <div className="flex justify-center py-2">
+            <div className='wrapper grid grid-cols-2 gap-1'>
+              <div className='pt-1 px-1'>
+                <div className="flex justify-center">
+                  <i className='fas fa-weight pt-1 px-1'></i>
+                  <h3 className=''>{onePokemon?.weight/10} kg</h3>
                 </div>
-              <p className=''>Weight</p>
-            </div>
-          </div>
-          <div className='grid grid-cols-2 content-center '>
-            <div className="inline-block">
-              <div className='flex gap-2 justify-center '>
-                <i className='fas fa-ruler-combined pt-1 pl-10'></i>
-                <h3>{onePokemon?.height/10}m</h3>
+                <p className='px-3'>Weight</p>
               </div>
-              <p className='pl-5'>Height</p>
+              <div className='pt-1 px-1'>
+                <div className="flex justify-center">
+                  <i className='fas fa-ruler-combined pt-1 px-1'></i>
+                  <h3 className=''>{onePokemon?.height/10} m</h3>
+                </div>
+                <p className='px-3'>Height</p>
+              </div>
             </div>
           </div>    
         </div>
       </div>
 
+        <div>
           <div class="hidden sm:left-1/2 sm:-ml-0.5 sm:w-0.5 sm:h-full bg-gray-600"></div>
           <div class="bg-black w-full"></div>
         </div>

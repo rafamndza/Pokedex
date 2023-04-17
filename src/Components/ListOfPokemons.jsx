@@ -11,7 +11,7 @@ export default function ListOfPokemons() {
   
   return (
     <div>
-      <DisplayPokemons pokemons={listOfPokemons} />
+      <DisplayPokemons pokemons={listOfPokemons}  />
       <Pagination pokemons={listOfPokemons}/>
     </div>
   )

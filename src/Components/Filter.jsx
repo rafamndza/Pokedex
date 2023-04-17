@@ -33,6 +33,10 @@ export default function Filter() {
 
   return (
     <div className='ml-10 w-18'>
+      <div className="flex justify-start align-middle">
+        <span class="glyphicon">&#xe138;</span>
+        <span>Filter by type </span>
+      </div>
       <select name="select" id="pokemonFlter" onChange={handleSelection}>
         <option value="" disabled >Select a type</option>
         {types.map(type => (
