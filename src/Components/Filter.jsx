@@ -1,17 +1,44 @@
-import React, { useState } from 'react'
-import Modal from './Modals/Modal';
+import axios from 'axios';
+import React, { useContext, useEffect, useState } from 'react'
+import { PokemonContext } from './context/Provider';
 
 export default function Filter() {
+
+  const {listOfPokemons,setListOfPokemons}= useContext(PokemonContext)
+
+  const [types,setTypes]=useState([
+    {"name":"normal","url":"https://pokeapi.co/api/v2/type/1/"}
+  ]);
   
-  const [filter,setFilter]=useState(false)
+  const getTypes = async()=>{
+    const res = await axios.get(`https://pokeapi.co/api/v2/type`)
+    const data= res.data.results
+    setTypes(data)
+  };
+
+  useEffect(() => {
+    getTypes();
+  }, [])
+
+  const handleSelection = async (e) => {
+    const selectedTypeUrl = e.target.value;
+    const res = await axios.get(selectedTypeUrl);
+    const data = res.data.pokemon.map((p) => p.pokemon);
+    setListOfPokemons(data);
+  };
+
+  console.log(listOfPokemons)
+  
+
 
   return (
-    <div className='flex pl-10 py-5 '>
-      <button onClick={()=>{setFilter(true)}} id='open-modal' className=' outline outline-black	 rounded-full flex gap-2 h-10 justify-center'>
-        <i class='fas fa-sliders-h align-middle pl-4 pt-3'></i>
-        <p className='pt-2 pr-4'>Filter by Type</p>
-      </button>
-      {filter && <Modal close={setFilter}/>}
+    <div className='ml-10 w-18'>
+      <select name="select" id="pokemonFlter" onChange={handleSelection}>
+        <option value="" disabled >Select a type</option>
+        {types.map(type => (
+          <option key={type.name} value={type.url}>{type.name}</option>
+        ))}
+      </select>
     </div>
   )
 }

@@ -85,6 +85,7 @@ export default function Provider( {children} ) {
       offset,
       setOffSet,
       listOfPokemons,
+      setListOfPokemons,
       currentPage,
       totalPages,
       handleSubmit,
