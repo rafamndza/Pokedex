@@ -32,18 +32,18 @@ export default function Provider( {children} ) {
   //    Searchbar
 
   const [onePokemon,setOnePokemon]=useState({
-    name:'',
-    img:'',
-    id:'',
-    types:[{},{}],
-    weight:'',
-    height:'',
-    hp:'',
-    attack:'',
-    defense:'',
-    special_attack:'',
-    special_defese:'',
-    speed:''
+    name:'ditto',
+    img:'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png',
+    id:'132',
+    types:[{type:{ name:'normal'}},{}],
+    weight:40,
+    height:3,
+    hp:48,
+    attack:48,
+    defense:48,
+    special_attack:48,
+    special_defese:48,
+    speed:48
   
   });
   

@@ -7,9 +7,9 @@ export default function SearchModals() {
   const {onePokemon}=useContext(PokemonContext)
 
   return (
-    <div class="p-10 shrink bg-black text-white">
+    <div class="p-10  bg-black text-white">
       <div className="wrapper rounded-lg outline outline-offset-0  ">
-        <div className="content-wrapper grid">
+        <div className="content-wrapper grid md:flex">
           <div className="header">
             <div className=" flex">
               <div className='absolute rounded-lg outline outline-offset-0 w-10 flex justify-center py-1.5 text-white bg-black'> 
@@ -39,7 +39,7 @@ export default function SearchModals() {
             )}
           </div>
           <div className="flex justify-center py-2">
-            <div className='wrapper grid grid-cols-2 gap-1'>
+            <div className='wrapper grid grid-cols-2 gap-1 md:flex'>
               <div className='pt-1 px-1'>
                 <div className="flex justify-center">
                   <i className='fas fa-weight pt-1 px-1'></i>
@@ -56,6 +56,8 @@ export default function SearchModals() {
               </div>
             </div>
           </div>
+        </div>  
+        <div className='inline-block'>
           <div class="border-b-2 border-gray-500 opacity-50"></div>
           <div className="stats flex justify-center gap-2">
               <div className='inline-block'>
@@ -63,8 +65,8 @@ export default function SearchModals() {
                   <h3>Stats</h3>
                 </div>
                 <div className="flex">
-                <div className="grid grid-cols-3">
-                  <div className="col_names">
+                <div className="grid grid-cols-3 pb-3">
+                  <div className="px-2">
                     <p>HP:</p>
                     <p>ATTACK:</p>
                     <p>DEFENSE:</p>
@@ -72,7 +74,7 @@ export default function SearchModals() {
                     <p>SP.DEFENSE:</p>
                     <p>SPEED:</p>
                   </div>
-                  <div className="col_number">
+                  <div className="px-4 text-center w-24">
                     <p>{onePokemon?.hp}</p>
                     <p>{onePokemon?.attack}</p>
                     <p>{onePokemon?.defense}</p>
@@ -81,19 +83,19 @@ export default function SearchModals() {
                     <p>{onePokemon?.speed}</p>
                   </div>
                 </div>
-                <div className="col_bar">
-                  <progress  max="255" value={onePokemon?.hp}></progress><br />
-                  <progress  max="100" value={onePokemon?.attack}></progress> <br />
-                  <progress  max="100" value={onePokemon?.defense}></progress><br />
-                  <progress  max="100" value={onePokemon?.special_attack}></progress><br />
-                  <progress  max="100" value={onePokemon?.special_defese}></progress><br />
-                  <progress  max="100" value={onePokemon?.speed}></progress><br />
+                <div className="px-2">
+                  <progress className='rounded-lg'  max="255" value={onePokemon?.hp}></progress><br />
+                  <progress  max="115" value={onePokemon?.attack}></progress> <br />
+                  <progress  max="230" value={onePokemon?.defense}></progress><br />
+                  <progress  max="200" value={onePokemon?.special_attack}></progress><br />
+                  <progress  max="230" value={onePokemon?.special_defese}></progress><br />
+                  <progress  max="130" value={onePokemon?.speed}></progress><br />
                 </div>
                 </div>
+              </div>
               </div>
           </div>
         </div>
       </div>
-    </div>
   )
 }
