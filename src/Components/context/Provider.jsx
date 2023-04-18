@@ -40,7 +40,7 @@ export default function Provider( {children} ) {
     height:'',
     hp:'',
     attack:'',
-    def:'',
+    defense:'',
     special_attack:'',
     special_defese:'',
     speed:''

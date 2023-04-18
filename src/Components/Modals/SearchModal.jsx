@@ -55,15 +55,45 @@ export default function SearchModals() {
                 <p className='px-3'>Height</p>
               </div>
             </div>
-          </div>    
+          </div>
+          <div class="border-b-2 border-gray-500 opacity-50"></div>
+          <div className="stats flex justify-center gap-2">
+              <div className='inline-block'>
+                <div className='flex justify-center'>
+                  <h3>Stats</h3>
+                </div>
+                <div className="flex">
+                <div className="grid grid-cols-3">
+                  <div className="col_names">
+                    <p>HP:</p>
+                    <p>ATTACK:</p>
+                    <p>DEFENSE:</p>
+                    <p>SP.ATTACK:</p>
+                    <p>SP.DEFENSE:</p>
+                    <p>SPEED:</p>
+                  </div>
+                  <div className="col_number">
+                    <p>{onePokemon?.hp}</p>
+                    <p>{onePokemon?.attack}</p>
+                    <p>{onePokemon?.defense}</p>
+                    <p>{onePokemon?.special_attack}</p>
+                    <p>{onePokemon?.special_defese}</p>
+                    <p>{onePokemon?.speed}</p>
+                  </div>
+                </div>
+                <div className="col_bar">
+                  <progress  max="255" value={onePokemon?.hp}></progress><br />
+                  <progress  max="100" value={onePokemon?.attack}></progress> <br />
+                  <progress  max="100" value={onePokemon?.defense}></progress><br />
+                  <progress  max="100" value={onePokemon?.special_attack}></progress><br />
+                  <progress  max="100" value={onePokemon?.special_defese}></progress><br />
+                  <progress  max="100" value={onePokemon?.speed}></progress><br />
+                </div>
+                </div>
+              </div>
+          </div>
         </div>
       </div>
-
-        <div>
-          <div class="hidden sm:left-1/2 sm:-ml-0.5 sm:w-0.5 sm:h-full bg-gray-600"></div>
-          <div class="bg-black w-full"></div>
-        </div>
-      </div>
-    
+    </div>
   )
 }
