@@ -1,11 +1,9 @@
 import React, { useState,useEffect } from 'react'
 import axios from 'axios'
 import { pokemonTypes } from './TypesCustom';
-import MoreDetails from './MoreDetails';
 
 
 export default function Card({pokemon}) {
-    const [moreDetails,setMoreDetails]=useState(false);
     const[pokemonData,setPokemonData]=useState({
         name:'',
         id:'',
@@ -74,15 +72,9 @@ export default function Card({pokemon}) {
                             </div>
                         </div>
                     </div>
-                    <div className="flex justify-center bg-slate-300 text-black  p-1">
-                        <button  onClick={()=>{setMoreDetails(true)}} className=''>
-                            <p>More details</p>
-                        </button>
-                    </div>
                 </div>
             </div>
         </div>
-        {moreDetails && <MoreDetails close={setMoreDetails}/>}
     </div>
   )
 }

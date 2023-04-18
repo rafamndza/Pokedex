@@ -9,7 +9,7 @@ export default function SearchModals() {
   return (
     <div class="p-10  bg-black text-white">
       <div className="wrapper rounded-lg outline outline-offset-0  ">
-        <div className="content-wrapper grid md:flex">
+        <div className="content-wrapper grid ">
           <div className="header">
             <div className=" flex">
               <div className='absolute rounded-lg outline outline-offset-0 w-10 flex justify-center py-1.5 text-white bg-black'> 
@@ -57,7 +57,6 @@ export default function SearchModals() {
             </div>
           </div>
         </div>  
-        <div className='inline-block'>
           <div class="border-b-2 border-gray-500 opacity-50"></div>
           <div className="stats flex justify-center gap-2">
               <div className='inline-block'>
@@ -92,7 +91,6 @@ export default function SearchModals() {
                   <progress  max="130" value={onePokemon?.speed}></progress><br />
                 </div>
                 </div>
-              </div>
               </div>
           </div>
         </div>
